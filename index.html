@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chicken Burger Games 🍗🍔</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Play unblocked Batman and Mario games online! Free fun browser games for school or home.">
+  <meta name="keywords" content="unblocked games, batman unblocked, mario unblocked, school games, free browser games">
+  <meta name="robots" content="index, follow">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #121212;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      color: #ffcc33;
+      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+    .menu button {
+      background: #222;
+      border: 2px solid #ffcc33;
+      color: #ffcc33;
+      font-size: 1.2rem;
+      padding: 15px 25px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .menu button:hover {
+      background: #ffcc33;
+      color: #222;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 90vh;
+      display: none;
+    }
+    .controls {
+      margin: 10px;
+      padding: 10px 15px;
+      background: #1e1e1e;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      display: none;
+    }
+    .back-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      background: #ff4444;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      display: none;
+    }
+    footer {
+      margin: 15px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍗🍔 Chicken Burger Games</h1>
+    <p>Select a game to play unblocked in full screen.</p>
+  </header>
+
+  <!-- Home Menu -->
+  <div class="menu" id="menu">
+    <button onclick="startGame('batman')">Batman</button>
+    <button onclick="startGame('batmanRunner')">Batman Runner</button>
+    <button onclick="startGame('mario')">Mario vs Luigi</button>
+  </div>
+
+  <!-- Back button -->
+  <button class="back-btn" id="backBtn" onclick="goHome()">⬅ Back to Menu</button>
+
+  <!-- Controls -->
+  <div class="controls" id="controls"></div>
+
+  <!-- Games -->
+  <iframe id="batman" src="https://html-classic.itch.zone/html/5203280/index.html" allowfullscreen></iframe>
+  <iframe id="batmanRunner" src="https://html-classic.itch.zone/html/5844054/index.html" allowfullscreen></iframe>
+  <iframe id="mario" src="https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html" allowfullscreen></iframe>
+
+  <footer>
+    <p>© 2025 Chicken Burger Games | Play unblocked games at school</p>
+  </footer>
+
+  <script>
+    const menu = document.getElementById("menu");
+    const backBtn = document.getElementById("backBtn");
+    const controlsBox = document.getElementById("controls");
+    const games = {
+      batman: {
+        title: "Batman",
+        controls: "Controls: Arrow Keys (Up, Down, Left, Right)<br>Shoot: Z",
+      },
+      batmanRunner: {
+        title: "Batman Runner",
+        controls: "Controls: Arrow Keys to move and jump",
+      },
+      mario: {
+        title: "Mario vs Luigi",
+        controls: "Controls: Use Arrow Keys or WASD (2 player mode available)",
+      },
+    };
+
+    function startGame(gameId) {
+      menu.style.display = "none";
+      backBtn.style.display = "inline-block";
+      controlsBox.style.display = "block";
+
+      // Hide all iframes
+      document.querySelectorAll("iframe").forEach(f => f.style.display = "none");
+
+      // Show selected game
+      document.getElementById(gameId).style.display = "block";
+      controlsBox.innerHTML = `<strong>${games[gameId].title}</strong><br>${games[gameId].controls}`;
+    }
+
+    function goHome() {
+      menu.style.display = "flex";
+      backBtn.style.display = "none";
+      controlsBox.style.display = "none";
+      document.querySelectorAll("iframe").forEach(f => f.style.display = "none");
+    }
+  </script>
+</body>
+</html>
