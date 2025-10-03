@@ -22,27 +22,19 @@
       align-items: center;
       min-height: 100vh;
       overflow-x: hidden;
+
+      /* 🌌 Animated gradient background */
+      background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #121212, #0d0d0d);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    /* 🌌 Animated star background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: black url('https://www.transparenttextures.com/patterns/stardust.png');
-      z-index: -1;
-      animation: stars 60s linear infinite;
-    }
-    @keyframes stars {
-      from { background-position: 0 0; }
-      to { background-position: -10000px 10000px; }
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-    }
+    header { text-align: center; padding: 20px; }
     h1 {
       font-size: 2.2rem;
       margin: 0;
@@ -60,7 +52,7 @@
       margin: 15px;
       max-width: 800px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(255, 204, 51, 0.5);
+      box-shadow: 0 0 12px rgba(255, 204, 51, 0.5);
     }
     .featured h3 {
       margin: 0 0 10px;
@@ -98,10 +90,9 @@
       height: 80vh;
       display: none;
       border-radius: 8px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       background: #000;
     }
-    #mario { max-width: 900px; height: 70vh; }
 
     .controls {
       margin: 10px;
@@ -112,26 +103,23 @@
       display: none;
       max-width: 900px;
     }
-    .back-btn {
+    .back-btn, .fullscreen-btn {
       margin: 10px;
       padding: 10px 20px;
       border-radius: 10px;
       border: none;
-      background: #ff4444;
-      color: white;
-      font-size: 1rem;
       cursor: pointer;
       display: none;
     }
+    .back-btn {
+      background: #ff4444;
+      color: white;
+      font-size: 1rem;
+    }
     .fullscreen-btn {
-      margin: 5px;
-      padding: 8px 16px;
-      border-radius: 8px;
       border: 2px solid #ffcc33;
       background: #222;
       color: #ffcc33;
-      cursor: pointer;
-      display: none;
     }
     .fullscreen-btn:hover {
       background: #ffcc33;
@@ -191,19 +179,19 @@
   <!-- Controls -->
   <div class="controls" id="controls"></div>
 
-  <!-- Games -->
-  <iframe id="batman" src="https://html-classic.itch.zone/html/5203280/index.html"></iframe>
-  <iframe id="batmanRunner" src="https://html-classic.itch.zone/html/5844054/index.html"></iframe>
-  <iframe id="mario" src="https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html"></iframe>
-  <iframe id="scarlett" src="https://html-classic.itch.zone/html/14836857/index.html"></iframe>
-  <iframe id="ratking" src="https://html-classic.itch.zone/html/5567206/RATKING_WEB/index.html"></iframe>
-  <iframe id="breaks" src="https://html-classic.itch.zone/html/13021927-1206615/index.html"></iframe>
-  <iframe id="job" src="https://html-classic.itch.zone/html/14488253-1386396/index.html"></iframe>
-  <iframe id="zombietron" src="https://html-classic.itch.zone/html/13200376/index.html"></iframe>
-  <iframe id="degenerates" src="https://html-classic.itch.zone/html/15020933/index.html"></iframe>
-  <iframe id="eaglercraft" src="https://html-classic.itch.zone/html/13629802/index.html"></iframe>
-  <iframe id="party" src="https://html-classic.itch.zone/html/14256748/994/index.html"></iframe>
-  <iframe id="slope" src="https://html-classic.itch.zone/html/13075669/index.html"></iframe>
+  <!-- Games (lazy load: data-src instead of src) -->
+  <iframe id="batman" data-src="https://html-classic.itch.zone/html/5203280/index.html"></iframe>
+  <iframe id="batmanRunner" data-src="https://html-classic.itch.zone/html/5844054/index.html"></iframe>
+  <iframe id="mario" data-src="https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html"></iframe>
+  <iframe id="scarlett" data-src="https://html-classic.itch.zone/html/14836857/index.html"></iframe>
+  <iframe id="ratking" data-src="https://html-classic.itch.zone/html/5567206/RATKING_WEB/index.html"></iframe>
+  <iframe id="breaks" data-src="https://html-classic.itch.zone/html/13021927-1206615/index.html"></iframe>
+  <iframe id="job" data-src="https://html-classic.itch.zone/html/14488253-1386396/index.html"></iframe>
+  <iframe id="zombietron" data-src="https://html-classic.itch.zone/html/13200376/index.html"></iframe>
+  <iframe id="degenerates" data-src="https://html-classic.itch.zone/html/15020933/index.html"></iframe>
+  <iframe id="eaglercraft" data-src="https://html-classic.itch.zone/html/13629802/index.html"></iframe>
+  <iframe id="party" data-src="https://html-classic.itch.zone/html/14256748/994/index.html"></iframe>
+  <iframe id="slope" data-src="https://html-classic.itch.zone/html/13075669/index.html"></iframe>
 
   <footer>
     <p>© 2025 Chicken Burger Games | Free Unblocked Games for School</p>
@@ -238,7 +226,14 @@
       fullscreenBtn.style.display = "inline-block";
       controlsBox.style.display = "block";
       document.querySelectorAll("iframe").forEach(f => f.style.display = "none");
+
       currentFrame = document.getElementById(gameId);
+
+      // Lazy load if not loaded yet
+      if (!currentFrame.src) {
+        currentFrame.src = currentFrame.dataset.src;
+      }
+
       currentFrame.style.display = "block";
       controlsBox.innerHTML = `<strong>${games[gameId].title}</strong><br>${games[gameId].controls}`;
     }
