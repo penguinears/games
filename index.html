@@ -7,18 +7,18 @@
   <title>Chicken Burger Games | Free Unblocked Games for School</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="Play free unblocked games for school like Batman Platformer, Mario vs Luigi, Scarlett Shift, EaglerCraft, Block Drop, Red Handed, Job Simulator Horror, Zombietron and more. Instant play in your browser – no downloads.">
-  <meta name="keywords" content="unblocked games, unblocked games for school, free online games, batman platformer, mario unblocked, eaglercraft, scarlett shift, block drop, not me game, red handed, job simulator horror, zombietron">
+  <meta name="description" content="Play free unblocked games for school like Batman Platformer, Mario vs Luigi, Scarlett Shift, EaglerCraft, Block Drop, Zombietron, Red Handed, Job Simulator Horror, and more. Works instantly in your browser.">
+  <meta name="keywords" content="unblocked games, school games, play free games, batman platformer, mario vs luigi, eaglercraft, scarlett shift, block drop, not me, poom, red handed, slope xtreme, zombietron, party project, next door horror, job simulator horror">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Chicken Burger Games | Free Unblocked Games for School" />
-  <meta property="og:description" content="Play Batman Platformer, Mario, Scarlett Shift, Block Drop, Zombietron, EaglerCraft and more unblocked games directly in your browser. Perfect for school breaks!" />
+  <meta property="og:description" content="Play Batman Platformer, Mario, Scarlett Shift, EaglerCraft, Block Drop, Zombietron, Red Handed, Slope Xtreme, and more free unblocked games at school." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/59/Hamburger_icon.svg" />
   <meta property="og:url" content="https://chicken-burger-games.vercel.app" />
 
-  <!-- Twitter Cards -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Chicken Burger Games" />
   <meta name="twitter:description" content="Free unblocked games for school — Batman Platformer, Mario, Scarlett Shift, Block Drop, Zombietron, and more!" />
@@ -80,10 +80,7 @@
       box-shadow: 0 0 25px rgba(0,0,0,0.5);
       background: #000;
     }
-    #mario {
-      max-width: 900px;
-      height: 70vh;
-    }
+    #mario { max-width: 900px; height: 70vh; }
     .controls {
       margin: 10px;
       padding: 10px 15px;
@@ -119,7 +116,7 @@
     <p>Select a game to play instantly in your browser. No downloads, 100% free.</p>
   </header>
 
-  <!-- Home Menu -->
+  <!-- Menu -->
   <div class="menu" id="menu">
     <button onclick="startGame('batman')">Batman Platformer</button>
     <button onclick="startGame('batmanRunner')">Batman Runner</button>
@@ -132,6 +129,10 @@
     <button onclick="startGame('zombietron')">Zombietron</button>
     <button onclick="startGame('degenerates')">Dungeons & Degenerate Gamblers</button>
     <button onclick="startGame('eaglercraft')">EaglerCraft</button>
+    <button onclick="startGame('poom')">Poom</button>
+    <button onclick="startGame('party')">Party Project</button>
+    <button onclick="startGame('nextdoor')">Next Door (Horror)</button>
+    <button onclick="startGame('slope')">Slope Xtreme</button>
   </div>
 
   <!-- Back button -->
@@ -151,11 +152,15 @@
   <iframe id="job" src="https://html-classic.itch.zone/html/14488253-1386396/index.html" allowfullscreen></iframe>
   <iframe id="zombietron" src="https://html-classic.itch.zone/html/13200376/index.html" allowfullscreen></iframe>
   <iframe id="degenerates" src="https://html-classic.itch.zone/html/15020933/index.html" allowfullscreen></iframe>
-  <iframe id="eaglercraft" src="https://html-classic.itch.zone/html/5222091/index.html" allowfullscreen></iframe>
+  <iframe id="eaglercraft" src="https://html-classic.itch.zone/html/13629802/index.html" allowfullscreen></iframe>
+  <iframe id="poom" src="https://html-classic.itch.zone/html/7204900/index.html?v=1732313664" allowfullscreen></iframe>
+  <iframe id="party" src="https://html-classic.itch.zone/html/14256748/994/index.html" allowfullscreen></iframe>
+  <iframe id="nextdoor" src="https://html-classic.itch.zone/html/3589026/index.html?v=1732313778" allowfullscreen></iframe>
+  <iframe id="slope" src="https://html-classic.itch.zone/html/13075669/index.html" allowfullscreen></iframe>
 
   <footer>
     <p>© 2025 Chicken Burger Games | Free Unblocked Games for School</p>
-    <p>Batman • Mario • Scarlett Shift • Block Drop • Zombietron • Play Anywhere</p>
+    <p>Batman • Mario • Scarlett Shift • Poom • Slope Xtreme • Play Anywhere</p>
   </footer>
 
   <script>
@@ -167,14 +172,18 @@
       batman: { title: "Batman Platformer", controls: "Arrow Keys + Z to attack" },
       batmanRunner: { title: "Batman Runner", controls: "Arrow Keys to move/jump" },
       mario: { title: "Mario vs Luigi", controls: "Arrow Keys / WASD (2 players)" },
-      scarlett: { title: "Scarlett Shift", controls: "Fast-paced platformer. Use Arrow Keys or WASD" },
+      scarlett: { title: "Scarlett Shift", controls: "Arrow Keys or WASD" },
       blockdrop: { title: "Block Drop", controls: "Mobile friendly falling block game. Tap or arrow keys" },
-      notme: { title: "Not Me!", controls: "Detective puzzle game.<br>Description: It's like Tinder but you must bust the murderer. Analyze alibis, find the killer, or sacrifice suspects for clues." },
-      redhanded: { title: "Red Handed", controls: "Shooter game.<br>Controls explained in-game.<br>Press R = reload level, Y = invert Y-axis" },
-      job: { title: "Job Simulator Horror", controls: "Horror convenience store simulator. Use WASD + Mouse" },
+      notme: { title: "Not Me!", controls: "Detective puzzle game. Analyze alibis, find the killer, or sacrifice suspects for clues." },
+      redhanded: { title: "Red Handed", controls: "Shooter. Press R = reload, Y = invert Y-axis" },
+      job: { title: "Job Simulator Horror", controls: "Horror convenience store simulator. WASD + Mouse" },
       zombietron: { title: "Zombietron", controls: "Fight zombies with guns. Controls in-game." },
       degenerates: { title: "Dungeons & Degenerate Gamblers", controls: "Blackjack deckbuilder. Use mouse/touch." },
-      eaglercraft: { title: "EaglerCraft", controls: "Minecraft clone: WASD, Space = Jump, Mouse = Look" }
+      eaglercraft: { title: "EaglerCraft", controls: "Minecraft clone: WASD, Space = Jump, Mouse = Look" },
+      poom: { title: "Poom", controls: "Classic Doom-style shooter. Arrow keys/WASD + Mouse" },
+      party: { title: "Party Project", controls: "Multiplayer party game. Controls explained in-game." },
+      nextdoor: { title: "Next Door (Horror)", controls: "Story-driven horror game. Controls explained in-game." },
+      slope: { title: "Slope Xtreme", controls: "Arrow keys to steer, avoid obstacles." }
     };
 
     function startGame(gameId) {
