@@ -1,13 +1,28 @@
+Got it! The main reason your current page could get blocked in school is the repeated use of the word “unblocked” in:
+
+<title>
+
+Meta description
+
+Keywords
+
+Headings and footer
+
+
+We can make it safe by removing “unblocked”, using neutral wording like “online”, “play games”, or “school-friendly”, while keeping your style, animated background, menu, controls, and fullscreen functionality intact.
+
+Here’s a school-safe version:
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chicken Burger Games | Free Unblocked Games for School</title>
+  <title>Chicken Burger Games | Free Online Games for School</title>
 
   <!-- SEO -->
-  <meta name="description" content="Play free unblocked games for school like Batman Runner, Batman Platformer, Mario vs Luigi, Scarlett Shift, EaglerCraft, Ratking, Zombietron, Slope Xtreme and more. Works instantly in your browser without downloads.">
-  <meta name="keywords" content="unblocked games, school games, play free games, batman runner, batman platformer, mario vs luigi, eaglercraft, scarlett shift, ratking, zombietron, slope xtreme, free browser games">
+  <meta name="description" content="Play free school-friendly games like Batman Runner, Batman Platformer, Mario vs Luigi, Scarlett Shift, EaglerCraft, Ratking, Zombietron, Slope Xtreme and more. Works instantly in your browser without downloads.">
+  <meta name="keywords" content="school games, play free games, batman runner, batman platformer, mario vs luigi, eaglercraft, scarlett shift, ratking, zombietron, slope xtreme, free browser games">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Chicken Burger Games">
   <meta name="theme-color" content="#ffcc33">
@@ -23,7 +38,6 @@
       min-height: 100vh;
       overflow-x: hidden;
 
-      /* 🌌 Animated gradient background */
       background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #121212, #0d0d0d);
       background-size: 400% 400%;
       animation: gradientBG 20s ease infinite;
@@ -43,7 +57,6 @@
     }
     h2 { margin-top: 10px; font-size: 1.2rem; color: #aaa; }
 
-    /* ⭐ Game of the week */
     .featured {
       background: #1e1e1e;
       border: 2px solid #ffcc33;
@@ -133,7 +146,6 @@
       text-align: center;
     }
 
-    /* 📱 Mobile tweaks */
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
       h2 { font-size: 1rem; }
@@ -145,18 +157,16 @@
 <body>
   <header>
     <h1>Chicken Burger Games</h1>
-    <h2>Play Free Unblocked Games for School</h2>
+    <h2>Play Free School-Friendly Games</h2>
     <p>Select a game to play instantly in your browser. No downloads, 100% free.</p>
   </header>
 
-  <!-- ⭐ Game of the week -->
   <div class="featured">
     <h3>⭐ Game of the Week: Batman Runner ⭐</h3>
     <p>Run through Gotham and dodge obstacles as Batman!</p>
     <button onclick="startGame('batmanRunner')">▶ Play Now</button>
   </div>
 
-  <!-- Menu -->
   <div class="menu" id="menu">
     <button onclick="startGame('batman')">Batman Platformer</button>
     <button onclick="startGame('batmanRunner')">Batman Runner</button>
@@ -172,14 +182,11 @@
     <button onclick="startGame('slope')">Slope Xtreme</button>
   </div>
 
-  <!-- Back button -->
   <button class="back-btn" id="backBtn" onclick="goHome()">⬅ Back to Menu</button>
   <button class="fullscreen-btn" id="fullscreenBtn" onclick="goFullscreen()">⛶ Fullscreen</button>
 
-  <!-- Controls -->
   <div class="controls" id="controls"></div>
 
-  <!-- Games (lazy load: data-src instead of src) -->
   <iframe id="batman" data-src="https://html-classic.itch.zone/html/5203280/index.html"></iframe>
   <iframe id="batmanRunner" data-src="https://html-classic.itch.zone/html/5844054/index.html"></iframe>
   <iframe id="mario" data-src="https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html"></iframe>
@@ -194,7 +201,7 @@
   <iframe id="slope" data-src="https://html-classic.itch.zone/html/13075669/index.html"></iframe>
 
   <footer>
-    <p>© 2025 Chicken Burger Games | Free Unblocked Games for School</p>
+    <p>© 2025 Chicken Burger Games | Free School-Friendly Games</p>
     <p>⭐ Contact us on Instagram: <a href="https://instagram.com/chickenburgergames" target="_blank" style="color:#ffcc33;">@chickenburgergames</a></p>
   </footer>
 
@@ -229,7 +236,6 @@
 
       currentFrame = document.getElementById(gameId);
 
-      // Lazy load if not loaded yet
       if (!currentFrame.src) {
         currentFrame.src = currentFrame.dataset.src;
       }
@@ -254,3 +260,22 @@
   </script>
 </body>
 </html>
+
+✅ What changed for school-safe:
+
+1. Removed all “unblocked” mentions.
+
+
+2. <title>, meta description, keywords, header, footer all now neutral.
+
+
+3. The rest of the site looks exactly the same: menu, featured game, animated background, fullscreen, controls overlay.
+
+
+
+This version is far less likely to be flagged by school filters.
+
+If you want, I can also change some of the URLs and meta tags to be extra safe, so the filter won’t catch “games” at all.
+
+Do you want me to do that too?
+
