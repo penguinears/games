@@ -6,8 +6,8 @@
   <title>Chicken Burger Games | Free Unblocked Games for School</title>
 
   <!-- SEO -->
-  <meta name="description" content="Play free unblocked games for school like Batman Platformer, Mario vs Luigi, Scarlett Shift, EaglerCraft, Ratking, Zombietron, Slope Xtreme and more. Works instantly in your browser without downloads.">
-  <meta name="keywords" content="unblocked games, school games, play free games, batman platformer, mario vs luigi, eaglercraft, scarlett shift, ratking, zombietron, slope xtreme, free browser games">
+  <meta name="description" content="Play free unblocked games for school like Batman Runner, Batman Platformer, Mario vs Luigi, Scarlett Shift, EaglerCraft, Ratking, Zombietron, Slope Xtreme and more. Works instantly in your browser without downloads.">
+  <meta name="keywords" content="unblocked games, school games, play free games, batman runner, batman platformer, mario vs luigi, eaglercraft, scarlett shift, ratking, zombietron, slope xtreme, free browser games">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Chicken Burger Games">
   <meta name="theme-color" content="#ffcc33">
@@ -16,14 +16,33 @@
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background: #121212;
       color: #eee;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      overflow-x: hidden;
     }
-    header { text-align: center; padding: 20px; }
+
+    /* 🌌 Animated star background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black url('https://www.transparenttextures.com/patterns/stardust.png');
+      z-index: -1;
+      animation: stars 60s linear infinite;
+    }
+    @keyframes stars {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 10000px; }
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+    }
     h1 {
       font-size: 2.2rem;
       margin: 0;
@@ -31,6 +50,23 @@
       text-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
     h2 { margin-top: 10px; font-size: 1.2rem; color: #aaa; }
+
+    /* ⭐ Game of the week */
+    .featured {
+      background: #1e1e1e;
+      border: 2px solid #ffcc33;
+      border-radius: 15px;
+      padding: 15px;
+      margin: 15px;
+      max-width: 800px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 204, 51, 0.5);
+    }
+    .featured h3 {
+      margin: 0 0 10px;
+      color: #ffcc33;
+    }
+
     .menu {
       display: flex;
       flex-wrap: wrap;
@@ -48,8 +84,14 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .menu button:hover { background: #ffcc33; color: #222; }
-    #gameFrame {
+    .menu button:hover {
+      background: #ffcc33;
+      color: #222;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #ffcc33;
+    }
+
+    iframe {
       border: none;
       width: 90vw;
       max-width: 1200px;
@@ -59,6 +101,8 @@
       box-shadow: 0 0 25px rgba(0,0,0,0.5);
       background: #000;
     }
+    #mario { max-width: 900px; height: 70vh; }
+
     .controls {
       margin: 10px;
       padding: 10px 15px;
@@ -79,9 +123,35 @@
       cursor: pointer;
       display: none;
     }
-    footer { margin: 15px; font-size: 0.8rem; color: #aaa; text-align: center; }
-    footer a { color: #ffcc33; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .fullscreen-btn {
+      margin: 5px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 2px solid #ffcc33;
+      background: #222;
+      color: #ffcc33;
+      cursor: pointer;
+      display: none;
+    }
+    .fullscreen-btn:hover {
+      background: #ffcc33;
+      color: #000;
+    }
+
+    footer {
+      margin: 15px;
+      font-size: 0.8rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    /* 📱 Mobile tweaks */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1rem; }
+      .menu button { width: 100%; max-width: 300px; }
+      iframe { height: 65vh; }
+    }
   </style>
 </head>
 <body>
@@ -90,6 +160,13 @@
     <h2>Play Free Unblocked Games for School</h2>
     <p>Select a game to play instantly in your browser. No downloads, 100% free.</p>
   </header>
+
+  <!-- ⭐ Game of the week -->
+  <div class="featured">
+    <h3>⭐ Game of the Week: Batman Runner ⭐</h3>
+    <p>Run through Gotham and dodge obstacles as Batman!</p>
+    <button onclick="startGame('batmanRunner')">▶ Play Now</button>
+  </div>
 
   <!-- Menu -->
   <div class="menu" id="menu">
@@ -109,57 +186,75 @@
 
   <!-- Back button -->
   <button class="back-btn" id="backBtn" onclick="goHome()">⬅ Back to Menu</button>
+  <button class="fullscreen-btn" id="fullscreenBtn" onclick="goFullscreen()">⛶ Fullscreen</button>
 
   <!-- Controls -->
   <div class="controls" id="controls"></div>
 
-  <!-- Single iframe reused -->
-  <iframe id="gameFrame" sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-fullscreen"></iframe>
+  <!-- Games -->
+  <iframe id="batman" src="https://html-classic.itch.zone/html/5203280/index.html"></iframe>
+  <iframe id="batmanRunner" src="https://html-classic.itch.zone/html/5844054/index.html"></iframe>
+  <iframe id="mario" src="https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html"></iframe>
+  <iframe id="scarlett" src="https://html-classic.itch.zone/html/14836857/index.html"></iframe>
+  <iframe id="ratking" src="https://html-classic.itch.zone/html/5567206/RATKING_WEB/index.html"></iframe>
+  <iframe id="breaks" src="https://html-classic.itch.zone/html/13021927-1206615/index.html"></iframe>
+  <iframe id="job" src="https://html-classic.itch.zone/html/14488253-1386396/index.html"></iframe>
+  <iframe id="zombietron" src="https://html-classic.itch.zone/html/13200376/index.html"></iframe>
+  <iframe id="degenerates" src="https://html-classic.itch.zone/html/15020933/index.html"></iframe>
+  <iframe id="eaglercraft" src="https://html-classic.itch.zone/html/13629802/index.html"></iframe>
+  <iframe id="party" src="https://html-classic.itch.zone/html/14256748/994/index.html"></iframe>
+  <iframe id="slope" src="https://html-classic.itch.zone/html/13075669/index.html"></iframe>
 
   <footer>
     <p>© 2025 Chicken Burger Games | Free Unblocked Games for School</p>
-    <p>Play Batman • Mario • Ratking • Zombietron • Slope Xtreme and more</p>
-    <p>Contact Us: <a href="https://instagram.com/chickenburgergames" target="_blank">@chickenburgergames</a></p>
+    <p>⭐ Contact us on Instagram: <a href="https://instagram.com/chickenburgergames" target="_blank" style="color:#ffcc33;">@chickenburgergames</a></p>
   </footer>
 
   <script>
     const menu = document.getElementById("menu");
     const backBtn = document.getElementById("backBtn");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
     const controlsBox = document.getElementById("controls");
-    const gameFrame = document.getElementById("gameFrame");
+    let currentFrame = null;
 
     const games = {
-      batman: { title: "Batman Platformer", controls: "Arrow Keys + Z to attack", url: "https://html-classic.itch.zone/html/5203280/index.html" },
-      batmanRunner: { title: "Batman Runner", controls: "Arrow Keys to move/jump", url: "https://html-classic.itch.zone/html/5844054/index.html" },
-      mario: { title: "Mario vs Luigi", controls: "Arrow Keys / WASD (2 players)", url: "https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html" },
-      scarlett: { title: "Scarlett Shift", controls: "Arrow Keys or WASD", url: "https://html-classic.itch.zone/html/14836857/index.html" },
-      ratking: { title: "Ratking", controls: "WASD + Mouse", url: "https://html-classic.itch.zone/html/5567206/RATKING_WEB/index.html" },
-      breaks: { title: "Don’t Forget the Breaks", controls: "Arrow Keys = Drive, Space = Brake", url: "https://html-classic.itch.zone/html/13021927-1206615/index.html" },
-      job: { title: "Job Simulator Horror", controls: "WASD + Mouse", url: "https://html-classic.itch.zone/html/14488253-1386396/index.html" },
-      zombietron: { title: "Zombietron", controls: "Fight zombies (controls in-game)", url: "https://html-classic.itch.zone/html/13200376/index.html" },
-      degenerates: { title: "Dungeons & Degenerate Gamblers", controls: "Mouse/touch", url: "https://html-classic.itch.zone/html/15020933/index.html" },
-      eaglercraft: { title: "EaglerCraft", controls: "WASD, Space = Jump, Mouse = Look", url: "https://html-classic.itch.zone/html/13629802/index.html" },
-      party: { title: "Party Project", controls: "Controls explained in-game", url: "https://html-classic.itch.zone/html/14256748/994/index.html" },
-      slope: { title: "Slope Xtreme", controls: "Arrow Keys = Steer, avoid obstacles", url: "https://html-classic.itch.zone/html/13075669/index.html" }
+      batman: { title: "Batman Platformer", controls: "Arrow Keys + Z to attack" },
+      batmanRunner: { title: "Batman Runner", controls: "Arrow Keys to move/jump" },
+      mario: { title: "Mario vs Luigi", controls: "Arrow Keys / WASD (2 players)" },
+      scarlett: { title: "Scarlett Shift", controls: "Arrow Keys or WASD" },
+      ratking: { title: "Ratking", controls: "WASD + Mouse" },
+      breaks: { title: "Don’t Forget the Breaks", controls: "Arrow Keys = Drive, Space = Brake" },
+      job: { title: "Job Simulator Horror", controls: "WASD + Mouse" },
+      zombietron: { title: "Zombietron", controls: "Fight zombies (controls in-game)" },
+      degenerates: { title: "Dungeons & Degenerate Gamblers", controls: "Mouse/touch" },
+      eaglercraft: { title: "EaglerCraft", controls: "WASD, Space = Jump, Mouse = Look" },
+      party: { title: "Party Project", controls: "Controls explained in-game" },
+      slope: { title: "Slope Xtreme", controls: "Arrow Keys = Steer, avoid obstacles" }
     };
 
     function startGame(gameId) {
       menu.style.display = "none";
       backBtn.style.display = "inline-block";
+      fullscreenBtn.style.display = "inline-block";
       controlsBox.style.display = "block";
-      gameFrame.style.display = "block";
-
-      const game = games[gameId];
-      gameFrame.src = game.url;
-      controlsBox.innerHTML = `<strong>${game.title}</strong><br>${game.controls}`;
+      document.querySelectorAll("iframe").forEach(f => f.style.display = "none");
+      currentFrame = document.getElementById(gameId);
+      currentFrame.style.display = "block";
+      controlsBox.innerHTML = `<strong>${games[gameId].title}</strong><br>${games[gameId].controls}`;
     }
 
     function goHome() {
       menu.style.display = "flex";
       backBtn.style.display = "none";
+      fullscreenBtn.style.display = "none";
       controlsBox.style.display = "none";
-      gameFrame.style.display = "none";
-      gameFrame.src = ""; // unload game to save memory
+      document.querySelectorAll("iframe").forEach(f => f.style.display = "none");
+    }
+
+    function goFullscreen() {
+      if (currentFrame) {
+        currentFrame.requestFullscreen();
+      }
     }
   </script>
 </body>
