@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chicken Burger Games | Free Unblocked Games for School</title>
-  <meta name="description" content="Play free unblocked games for school like Mortal Kombat, Batman Platformer, Mario vs Luigi, Scarlett Shift, Pico Sonic, Ratking, Pico Shot, Infinite Mario and more. Works instantly in your browser without downloads.">
-  <meta name="keywords" content="unblocked games, school games, play free games, mortal kombat, batman, mario vs luigi, eaglercraft, scarlett shift, block drop, pico sonic, ratking, pico shot, infinite mario, moto x3m, slope xtreme">
+  <meta name="description" content="Play free unblocked games for school like Mortal Kombat, Batman Platformer, Mario vs Luigi, Scarlett Shift, EaglerCraft, Pico Sonic, Ratking, Pico Shot, Infinite Mario and more. Works instantly in your browser without downloads.">
+  <meta name="keywords" content="unblocked games, school games, play free games, mortal kombat, batman platformer, mario vs luigi, eaglercraft, scarlett shift, block drop, pico sonic, ratking, pico shot, infinite mario, moto x3m, slope xtreme">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Chicken Burger Games">
   <meta name="theme-color" content="#ffcc33">
 
   <style>
+    /* --- visual style kept like your original --- */
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
@@ -32,46 +33,22 @@
     .menu {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 12px;
       justify-content: center;
-      padding: 20px;
+      padding: 18px;
     }
     .menu button {
       background: #222;
       border: 2px solid #ffcc33;
       color: #ffcc33;
       font-size: 1rem;
-      padding: 12px 20px;
+      padding: 10px 16px;
       border-radius: 12px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.15s;
     }
     .menu button:hover { background: #ffcc33; color: #222; }
-    .game-container {
-      position: relative;
-      width: 90vw;
-      max-width: 1200px;
-      height: 80vh;
-      margin-bottom: 10px;
-    }
-    .game-container iframe {
-      border: none;
-      width: 100%;
-      height: 100%;
-      border-radius: 8px;
-      background: #000;
-    }
-    #mario { max-width: 900px; height: 70vh; }
-    .controls {
-      margin: 10px;
-      padding: 10px 15px;
-      background: #1e1e1e;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      display: none;
-      max-width: 900px;
-      color: #eee;
-    }
+
     .back-btn {
       margin: 10px;
       padding: 10px 20px;
@@ -83,20 +60,56 @@
       cursor: pointer;
       display: none;
     }
+
+    .controls {
+      margin: 10px;
+      padding: 10px 15px;
+      background: #1e1e1e;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      display: none;
+      max-width: 1200px;
+      color: #eee;
+    }
+
+    /* Game container and iframe sizing */
+    .game-container {
+      display: none;               /* hidden until selected */
+      position: relative;
+      width: 90vw;
+      max-width: 1200px;
+      height: 80vh;
+      margin-bottom: 14px;
+    }
+    .game-container iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      border: none;
+      background: #000;
+      display: block;
+    }
+
+    /* Fullscreen button (per container) */
     .fs-btn {
       position: absolute;
       top: 8px;
       right: 8px;
-      z-index: 10;
-      background: rgba(0,0,0,0.5);
+      z-index: 20;
+      background: rgba(0,0,0,0.55);
       color: #fff;
-      border: none;
+      border: 1px solid rgba(255,255,255,0.08);
       padding: 6px 10px;
       font-size: 0.9rem;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
     }
+
     footer { margin: 15px; font-size: 0.8rem; color: #aaa; text-align: center; }
+    @media (max-width: 700px) {
+      .game-container { width: 98vw; height: 70vh; }
+      .menu button { padding: 9px 12px; font-size: 0.95rem; }
+    }
   </style>
 </head>
 <body>
@@ -106,9 +119,9 @@
     <p>Select a game to play instantly in your browser. No downloads, 100% free.</p>
   </header>
 
+  <!-- Menu (Mortal Kombat at top as requested previously) -->
   <div class="menu" id="menu">
     <button onclick="startGame('mortalKombat')">🔥 Game of the Week: Mortal Kombat</button>
-    <button onclick="startGame('motoX3M')">Moto X3M</button>
     <button onclick="startGame('batman')">Batman Platformer</button>
     <button onclick="startGame('batmanRunner')">Batman Runner</button>
     <button onclick="startGame('mario')">Mario vs Luigi</button>
@@ -125,73 +138,212 @@
     <button onclick="startGame('eaglercraft')">EaglerCraft</button>
     <button onclick="startGame('party')">Party Project</button>
     <button onclick="startGame('slope')">Slope Xtreme</button>
+    <button onclick="startGame('motoX3M')">Moto X3M</button>
   </div>
 
+  <!-- Back + Controls -->
   <button class="back-btn" id="backBtn" onclick="goHome()">⬅ Back to Menu</button>
-
   <div class="controls" id="controls"></div>
 
-  <!-- Game containers -->
-  <div class="game-container">
-    <button class="fs-btn" id="fsToggle">Fullscreen</button>
-    <iframe id="mortalKombat" src="https://www.retrogames.cc/embed/44277-mortal-kombat-red-blood-and-easy-moves.html" allowfullscreen></iframe>
+  <!-- ===== Game containers (ALL restored) ===== -->
+  <!-- Mortal Kombat (Game of the Week) -->
+  <div class="game-container" id="container-mortalKombat" aria-hidden="true">
+    <button class="fs-btn" data-target="mortalKombat">Fullscreen</button>
+    <iframe id="mortalKombat"
+            src="https://www.retrogames.cc/embed/44277-mortal-kombat-red-blood-and-easy-moves.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            webkitallowfullscreen
+            mozallowfullscreen
+            title="Mortal Kombat (SNES)"></iframe>
   </div>
 
-  <div class="game-container">
-    <button class="fs-btn" id="fsToggleMoto">Fullscreen</button>
-    <iframe id="motoX3M" src="https://jasongamesdev.github.io/moto-x3m/" allowfullscreen></iframe>
+  <!-- Batman Platformer -->
+  <div class="game-container" id="container-batman" aria-hidden="true">
+    <button class="fs-btn" data-target="batman">Fullscreen</button>
+    <iframe id="batman"
+            src="https://html-classic.itch.zone/html/5203280/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Batman Platformer"></iframe>
   </div>
 
-  <!-- Existing other game iframes hidden by default -->
-  <div class="game-container">
-    <button class="fs-btn" id="fsToggleBatman">Fullscreen</button>
-    <iframe id="batman" src="https://html-classic.itch.zone/html/5203280/index.html"></iframe>
+  <!-- Batman Runner -->
+  <div class="game-container" id="container-batmanRunner" aria-hidden="true">
+    <button class="fs-btn" data-target="batmanRunner">Fullscreen</button>
+    <iframe id="batmanRunner"
+            src="https://html-classic.itch.zone/html/5844054/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Batman Runner"></iframe>
   </div>
-  <div class="game-container">
-    <button class="fs-btn" id="fsToggleBatmanRunner">Fullscreen</button>
-    <iframe id="batmanRunner" src="https://html-classic.itch.zone/html/5844054/index.html"></iframe>
+
+  <!-- Mario vs Luigi -->
+  <div class="game-container" id="container-mario" aria-hidden="true">
+    <button class="fs-btn" data-target="mario">Fullscreen</button>
+    <iframe id="mario"
+            src="https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Mario vs Luigi"></iframe>
   </div>
-  <div class="game-container">
-    <button class="fs-btn" id="fsToggleMario">Fullscreen</button>
-    <iframe id="mario" src="https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html"></iframe>
+
+  <!-- Scarlett Shift -->
+  <div class="game-container" id="container-scarlett" aria-hidden="true">
+    <button class="fs-btn" data-target="scarlett">Fullscreen</button>
+    <iframe id="scarlett"
+            src="https://html-classic.itch.zone/html/14836857/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Scarlett Shift"></iframe>
   </div>
-  <div class="game-container">
-    <button class="fs-btn" id="fsToggleScarlett">Fullscreen</button>
-    <iframe id="scarlett" src="https://html-classic.itch.zone/html/14836857/index.html"></iframe>
+
+  <!-- Block Drop -->
+  <div class="game-container" id="container-blockdrop" aria-hidden="true">
+    <button class="fs-btn" data-target="blockdrop">Fullscreen</button>
+    <iframe id="blockdrop"
+            src="https://html-classic.itch.zone/html/2917030/index.html?v=1732313799"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Block Drop"></iframe>
   </div>
-  <!-- include other game iframes the same way... -->
+
+  <!-- Pico Sonic -->
+  <div class="game-container" id="container-picosonic" aria-hidden="true">
+    <button class="fs-btn" data-target="picosonic">Fullscreen</button>
+    <iframe id="picosonic"
+            src="https://html-classic.itch.zone/html/3206704-702072/picosonic_v7.0_release_web/index.html?v=1732313790"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Pico Sonic"></iframe>
+  </div>
+
+  <!-- Ratking -->
+  <div class="game-container" id="container-ratking" aria-hidden="true">
+    <button class="fs-btn" data-target="ratking">Fullscreen</button>
+    <iframe id="ratking"
+            src="https://html-classic.itch.zone/html/5567206/RATKING_WEB/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Ratking"></iframe>
+  </div>
+
+  <!-- Don't Forget the Breaks -->
+  <div class="game-container" id="container-breaks" aria-hidden="true">
+    <button class="fs-btn" data-target="breaks">Fullscreen</button>
+    <iframe id="breaks"
+            src="https://html-classic.itch.zone/html/13021927-1206615/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Don't Forget the Breaks"></iframe>
+  </div>
+
+  <!-- Infinite Mario -->
+  <div class="game-container" id="container-infinitemario" aria-hidden="true">
+    <button class="fs-btn" data-target="infinitemario">Fullscreen</button>
+    <iframe id="infinitemario"
+            src="https://html-classic.itch.zone/html/695332/index.html?v=1542784907"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Infinite Mario"></iframe>
+  </div>
+
+  <!-- Pico Shot -->
+  <div class="game-container" id="container-picoshot" aria-hidden="true">
+    <button class="fs-btn" data-target="picoshot">Fullscreen</button>
+    <iframe id="picoshot"
+            src="https://html-classic.itch.zone/html/4274784/picohot_html/index.html?v=1732313756"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Pico Shot"></iframe>
+  </div>
+
+  <!-- Job Simulator Horror -->
+  <div class="game-container" id="container-job" aria-hidden="true">
+    <button class="fs-btn" data-target="job">Fullscreen</button>
+    <iframe id="job"
+            src="https://html-classic.itch.zone/html/14488253-1386396/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Job Simulator Horror"></iframe>
+  </div>
+
+  <!-- Zombietron -->
+  <div class="game-container" id="container-zombietron" aria-hidden="true">
+    <button class="fs-btn" data-target="zombietron">Fullscreen</button>
+    <iframe id="zombietron"
+            src="https://html-classic.itch.zone/html/13200376/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Zombietron"></iframe>
+  </div>
+
+  <!-- Dungeons & Degenerate Gamblers -->
+  <div class="game-container" id="container-degenerates" aria-hidden="true">
+    <button class="fs-btn" data-target="degenerates">Fullscreen</button>
+    <iframe id="degenerates"
+            src="https://html-classic.itch.zone/html/15020933/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Dungeons & Degenerate Gamblers"></iframe>
+  </div>
+
+  <!-- EaglerCraft -->
+  <div class="game-container" id="container-eaglercraft" aria-hidden="true">
+    <button class="fs-btn" data-target="eaglercraft">Fullscreen</button>
+    <iframe id="eaglercraft"
+            src="https://html-classic.itch.zone/html/13629802/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="EaglerCraft"></iframe>
+  </div>
+
+  <!-- Party Project -->
+  <div class="game-container" id="container-party" aria-hidden="true">
+    <button class="fs-btn" data-target="party">Fullscreen</button>
+    <iframe id="party"
+            src="https://html-classic.itch.zone/html/14256748/994/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Party Project"></iframe>
+  </div>
+
+  <!-- Slope Xtreme -->
+  <div class="game-container" id="container-slope" aria-hidden="true">
+    <button class="fs-btn" data-target="slope">Fullscreen</button>
+    <iframe id="slope"
+            src="https://html-classic.itch.zone/html/13075669/index.html"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Slope Xtreme"></iframe>
+  </div>
+
+  <!-- Moto X3M (user-provided) -->
+  <div class="game-container" id="container-motoX3M" aria-hidden="true">
+    <button class="fs-btn" data-target="motoX3M">Fullscreen</button>
+    <iframe id="motoX3M"
+            src="https://jasongamesdev.github.io/moto-x3m/"
+            allow="fullscreen; autoplay"
+            allowfullscreen
+            title="Moto X3M"></iframe>
+  </div>
 
   <footer>
     <p>© 2025 Chicken Burger Games | Free Unblocked Games for School</p>
-    <p>Play Mortal Kombat • Moto X3M • Batman • Mario • Pico Sonic • Ratking • Pico Shot • Infinite Mario • Slope Xtreme and more</p>
+    <p>Play Mortal Kombat • Batman • Mario • Pico Sonic • Ratking • Pico Shot • Infinite Mario • Moto X3M • Slope Xtreme and more</p>
   </footer>
 
   <script>
-    const menu = document.getElementById("menu");
-    const backBtn = document.getElementById("backBtn");
-    const controlsBox = document.getElementById("controls");
-    const fsToggle = document.getElementById("fsToggle");
-    const fsToggleMoto = document.getElementById("fsToggleMoto");
-    const fsToggleBatman = document.getElementById("fsToggleBatman");
-    const fsToggleBatmanRunner = document.getElementById("fsToggleBatmanRunner");
-    const fsToggleMario = document.getElementById("fsToggleMario");
-    const fsToggleScarlett = document.getElementById("fsToggleScarlett");
-    // etc for other full-screen toggles...
+    /* --- JS to handle menu, show/hide containers and fullscreen --- */
+    const menu = document.getElementById('menu');
+    const backBtn = document.getElementById('backBtn');
+    const controlsBox = document.getElementById('controls');
 
+    // Map of games -> title & controls
     const games = {
-      mortalKombat: { 
-        title: "Mortal Kombat (Game of the Week)", 
-        controls: `
-          <strong>Controls:</strong><br>
-          ← → ↑ ↓ = Directions<br>
-          Enter = Start<br>
-          Shift = Select<br>
-          Z / Y / X / B / C / A / S / X / A / L / D / R = Actions (varies per emulator)
-        `
-      },
-      motoX3M: {
-        title: "Moto X3M",
-        controls: "Arrow keys = steer, space = jump (typical Moto X3M controls)"
+      mortalKombat: {
+        title: "Mortal Kombat (Game of the Week)",
+        controls: `← → ↑ ↓ = Directions<br>Enter ↵ = Start<br>Shift = Select<br>Z Y = buttons<br>X B = buttons<br>C A = buttons<br>S X = buttons<br>A L = buttons<br>D R = buttons`
       },
       batman: { title: "Batman Platformer", controls: "Arrow Keys + Z to attack" },
       batmanRunner: { title: "Batman Runner", controls: "Arrow Keys to move/jump" },
@@ -208,59 +360,93 @@
       degenerates: { title: "Dungeons & Degenerate Gamblers", controls: "Mouse/touch" },
       eaglercraft: { title: "EaglerCraft", controls: "WASD, Space = Jump, Mouse = Look" },
       party: { title: "Party Project", controls: "Controls explained in-game" },
-      slope: { title: "Slope Xtreme", controls: "Arrow Keys = Steer, avoid obstacles" }
+      slope: { title: "Slope Xtreme", controls: "Arrow Keys = Steer, avoid obstacles" },
+      motoX3M: { title: "Moto X3M", controls: "Arrow keys = steer, space = hop/jump" }
     };
 
-    function startGame(gameId) {
-      menu.style.display = "none";
-      backBtn.style.display = "inline-block";
-      controlsBox.style.display = "block";
-
-      document.querySelectorAll(".game-container iframe").forEach(f => {
-        f.parentElement.style.display = "none";
+    // helper: hide all containers
+    function hideAllContainers() {
+      document.querySelectorAll('.game-container').forEach(c => {
+        c.style.display = 'none';
+        c.setAttribute('aria-hidden','true');
       });
-      const container = document.getElementById(gameId).parentElement;
-      container.style.display = "block";
+    }
 
-      controlsBox.innerHTML = `<strong>${games[gameId].title}</strong><br>${games[gameId].controls}`;
+    // start a game
+    function startGame(gameId) {
+      // show UI elements
+      menu.style.display = 'none';
+      backBtn.style.display = 'inline-block';
+      controlsBox.style.display = 'block';
+
+      // hide everything then show selected
+      hideAllContainers();
+      const container = document.getElementById('container-' + gameId);
+      if (!container) {
+        // safety: if not found, go home
+        goHome();
+        return;
+      }
+      container.style.display = 'block';
+      container.setAttribute('aria-hidden','false');
+
+      // update controls text
+      const g = games[gameId];
+      controlsBox.innerHTML = `<strong>${g ? g.title : gameId}</strong><br>${g ? g.controls : ''}`;
+
+      // try to focus iframe for keyboard input
+      const iframe = document.getElementById(gameId);
+      try { iframe && iframe.focus(); } catch(e){ /* ignore cross-origin focus errors */ }
     }
 
     function goHome() {
-      menu.style.display = "flex";
-      backBtn.style.display = "none";
-      controlsBox.style.display = "none";
-      document.querySelectorAll(".game-container").forEach(div => {
-        div.style.display = "none";
+      menu.style.display = 'flex';
+      backBtn.style.display = 'none';
+      controlsBox.style.display = 'none';
+      hideAllContainers();
+    }
+
+    // Setup fullscreen buttons: request fullscreen on the iframe element.
+    function setupFsButtons() {
+      document.querySelectorAll('.fs-btn').forEach(btn => {
+        const targetId = btn.getAttribute('data-target');
+        const iframe = document.getElementById(targetId);
+        if (!iframe) return;
+        btn.addEventListener('click', async () => {
+          // Some browsers require the iframe to have allowfullscreen attribute (we set it)
+          // Request fullscreen on the iframe element
+          try {
+            if (iframe.requestFullscreen) {
+              await iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) {
+              await iframe.webkitRequestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+              await iframe.mozRequestFullScreen();
+            } else if (iframe.msRequestFullscreen) {
+              await iframe.msRequestFullscreen();
+            } else {
+              // fallback: open a new window (not ideal, but works)
+              window.open(iframe.src, '_blank');
+            }
+          } catch (err) {
+            // fallback: open in new tab when fullscreen request fails (cross-origin restrictions)
+            window.open(iframe.src, '_blank');
+          }
+        }, {passive:true});
       });
     }
 
-    // Fullscreen toggles
-    function setupFullscreen(btn, iframeElem) {
-      btn.addEventListener("click", () => {
-        if (iframeElem.requestFullscreen) {
-          iframeElem.requestFullscreen();
-        } else if (iframeElem.webkitRequestFullscreen) {
-          iframeElem.webkitRequestFullscreen();
-        } else if (iframeElem.mozRequestFullScreen) {
-          iframeElem.mozRequestFullScreen();
-        } else if (iframeElem.msRequestFullscreen) {
-          iframeElem.msRequestFullscreen();
-        }
-      });
-    }
+    // init: hide containers and attach fs buttons
+    (function init() {
+      hideAllContainers();
+      setupFsButtons();
+      // show menu by default
+      menu.style.display = 'flex';
+      controlsBox.style.display = 'none';
+      backBtn.style.display = 'none';
+    })();
 
-    setupFullscreen(fsToggle, document.getElementById("mortalKombat"));
-    setupFullscreen(fsToggleMoto, document.getElementById("motoX3M"));
-    setupFullscreen(fsToggleBatman, document.getElementById("batman"));
-    setupFullscreen(fsToggleBatmanRunner, document.getElementById("batmanRunner"));
-    setupFullscreen(fsToggleMario, document.getElementById("mario"));
-    setupFullscreen(fsToggleScarlett, document.getElementById("scarlett"));
-    // … similarly for other games’ fs toggles if you add them
-
-    // Initially hide all game containers
-    document.querySelectorAll(".game-container").forEach(div => {
-      div.style.display = "none";
-    });
+    // Optional: close fullscreen on ESC handled by browser automatically.
   </script>
 </body>
 </html>
