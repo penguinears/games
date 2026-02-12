@@ -11,7 +11,6 @@
   <meta name="theme-color" content="#ffcc33">
 
   <style>
-    /* --- visual style kept like your original --- */
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
@@ -292,12 +291,12 @@
   </div>
 
   <footer>
-    <p>© 2025 Chicken Burger Games | Free Games for School and work </p>
+    <p>made by leo xd </p>
     <p>Play Mortal Kombat • Batman • Mario • ZombieTron• Ratking  • Infinite Mario • Moto X3M • Slope Xtreme and more</p>
   </footer>
 
   <script>
-    /* --- JS to handle menu, show/hide containers and fullscreen --- */
+    
     const menu = document.getElementById('menu');
     const backBtn = document.getElementById('backBtn');
     const controlsBox = document.getElementById('controls');
@@ -351,11 +350,11 @@
       container.style.display = 'block';
       container.setAttribute('aria-hidden','false');
 
-      // update controls text
+      
       const g = games[gameId];
       controlsBox.innerHTML = `<strong>${g ? g.title : gameId}</strong><br>${g ? g.controls : ''}`;
 
-      // try to focus iframe for keyboard input
+ 
       const iframe = document.getElementById(gameId);
       try { iframe && iframe.focus(); } catch(e){ /* ignore cross-origin focus errors */ }
     }
@@ -374,8 +373,7 @@
         const iframe = document.getElementById(targetId);
         if (!iframe) return;
         btn.addEventListener('click', async () => {
-          // Some browsers require the iframe to have allowfullscreen attribute (we set it)
-          // Request fullscreen on the iframe element
+          
           try {
             if (iframe.requestFullscreen) {
               await iframe.requestFullscreen();
@@ -386,11 +384,11 @@
             } else if (iframe.msRequestFullscreen) {
               await iframe.msRequestFullscreen();
             } else {
-              // fallback: open a new window (not ideal, but works)
+          
               window.open(iframe.src, '_blank');
             }
           } catch (err) {
-            // fallback: open in new tab when fullscreen request fails (cross-origin restrictions)
+
             window.open(iframe.src, '_blank');
           }
         }, {passive:true});
@@ -407,7 +405,7 @@
       backBtn.style.display = 'none';
     })();
 
-    // Optional: close fullscreen on ESC handled by browser automatically.
+
   </script>
 </body>
 </html>
