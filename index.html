@@ -3,166 +3,293 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Iggle2 Games for school</title>
-
-<meta name="keywords" content="Iggle unblocked, Roblox unblocked, unblocked games, school games, Ratking, Mortal Kombat, Batman, Mario, MindScan, Epstein Redaction, Texas Hold'em, Infinite Mario, Slope Xtreme, Moto X3M, Dublix, EaglerCraft, Party Project, Scarlett Shift, Job Simulator Horror, Zombietron, Dungeons & Degenerate Gamblers">
-<meta name="description" content="Play free unblocked games in your browser including Ratking, Mortal Kombat, Batman Platformer, Mario vs Luigi, MindScan, Epstein Redaction, Texas Hold'em, Infinite Mario, Slope Xtreme, Moto X3M, Dublix, EaglerCraft and more. Works instantly with no downloads.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Chicken Burger Games">
-<meta name="theme-color" content="#ffcc33">
-<meta name="google-site-verification" content="KSmwDmP4yWp4CtLDiWvqARNvg19ii2h46sRa9r8o8Ro" />
+<title>Iggle2 Games</title>
 
 <style>
-body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:#121212;color:#eee;display:flex;flex-direction:column;align-items:center;min-height:100vh;}
-header{text-align:center;padding:20px;}
-h1{color:#ffcc33;font-size:2.2rem;text-shadow:0 0 10px rgba(255,255,255,0.2);margin-bottom:5px;}
-h2{color:#aaa;font-size:1.2rem;margin-top:0;margin-bottom:10px;}
-p{text-align:center;color:#ccc;margin:5px 0;}
+body{
+margin:0;
+font-family:"Segoe UI",Arial,sans-serif;
+background:#121212;
+color:#eee;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+text-align:center;
+}
 
-/* Featured top row */
-.featuredRow{display:flex;justify-content:center;gap:20px;margin:20px;flex-wrap:wrap;}
-.featured{background:#111;padding:10px;border:2px solid #ffcc33;border-radius:15px;text-align:center;flex:1;min-width:220px;max-width:280px;display:flex;flex-direction:column;align-items:center;box-shadow:0 0 20px rgba(0,0,0,.5);}
-.featured img{width:160px;border-radius:15px;margin-bottom:12px;}
-.featured button{padding:8px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:600;background:#ffcc33;color:#111;transition:.2s;}
-.featured button:hover{background:#ffc000;color:#000;}
-.featured .gameName{color:#ffcc33;font-weight:bold;text-align:center;margin-bottom:8px;font-size:1rem;}
+header{
+padding:20px;
+}
 
-.gameGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:15px;width:90%;max-width:1200px;margin:20px auto 40px;}
-.gameTile{background:#111;padding:10px;border:2px solid #ffcc33;border-radius:15px;text-align:center;display:flex;flex-direction:column;align-items:center;box-shadow:0 0 20px rgba(0,0,0,.5);}
-.gameTile button{padding:8px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:600;background:#ffcc33;color:#111;transition:.2s;margin-top:6px;}
-.gameTile button:hover{background:#ffc000;color:#000;}
-.gameTile .gameName{color:#ffcc33;font-weight:bold;text-align:center;margin-bottom:5px;font-size:0.95rem;}
+h1{
+color:#ffcc33;
+font-size:2.2rem;
+margin-bottom:5px;
+}
 
+h2{
+color:#aaa;
+font-size:1.2rem;
+margin-top:0;
+margin-bottom:10px;
+}
 
-#playerOverlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999;}
-#playerBox{width:90%;max-width:1100px;height:85%;background:#0d0d12;border-radius:20px;padding:15px;display:flex;flex-direction:column;box-shadow:0 0 50px #000;position:relative;}
-#playerBox h2{margin:5px 0;color:#fff;text-align:center;}
-#playerBox p{color:#ccc;margin:0 0 8px;text-align:center;}
-#gameFrame{flex:1;border:none;border-radius:10px;margin-top:5px;}
-.closeBtn{position:absolute;top:20px;right:20px;font-size:26px;background:none;border:none;color:#fff;cursor:pointer;}
-.playerActions{display:flex;gap:10px;justify-content:center;margin-bottom:6px;}
-.playerActions button{padding:8px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:600;background:#ffcc33;color:#111;}
-.playerActions button:hover{background:#ffc000;color:#000;}
+p{
+color:#ccc;
+margin:5px 0;
+}
 
+/* rows */
+.featuredRow{
+display:flex;
+justify-content:center;
+gap:20px;
+margin:20px;
+flex-wrap:wrap;
+width:90%;
+max-width:1200px;
+}
 
-.pen21Promo{width:100%;display:flex;justify-content:center;background:#0a0a0a;padding:140px 20px;position:relative;overflow:hidden;}
-.pen21Tile{max-width:900px;width:100%;padding:80px 60px;border-radius:35px;background:linear-gradient(145deg, rgba(255,60,0,0.25), rgba(120,0,0,0.45));backdrop-filter:blur(16px);text-align:center;border:2px solid rgba(255,80,0,0.5);color:white;position:relative;z-index:2;animation:glowPulse 3.5s infinite alternate;box-shadow:0 0 50px rgba(255,80,0,0.6);}
-.pen21Tile h1{font-size:5.5rem;margin:0 0 30px 0;font-weight:900;letter-spacing:7px;text-shadow:0 0 35px rgba(255,80,0,1),0 0 80px rgba(255,30,0,0.9);cursor:pointer;}
-.pen21Tile h2{font-size:2rem;margin-bottom:20px;opacity:.95;text-shadow:0 0 18px rgba(255,80,0,1);}
-.pen21Tile a{padding:22px 55px;background:orange;color:#000;font-weight:bold;border-radius:70px;text-decoration:none;font-size:1.5rem;transition:.25s;box-shadow:0 0 30px rgba(255,80,0,1);display:inline-block;margin-top:15px;}
-.pen21Tile a:hover{box-shadow:0 0 55px rgba(255,120,0,1);transform:scale(1.1);}
-@keyframes glowPulse{0%{box-shadow:0 0 60px rgba(255,60,0,0.45), inset 0 0 40px rgba(0,0,0,0.6),0 0 120px rgba(255,0,0,0.25);}100%{box-shadow:0 0 80px rgba(255,80,0,0.7), inset 0 0 50px rgba(0,0,0,0.7),0 0 150px rgba(255,40,0,0.4);}}
+.featured{
+background:#111;
+padding:12px;
+border:2px solid #ffcc33;
+border-radius:15px;
+text-align:center;
+flex:1;
+min-width:220px;
+max-width:280px;
+display:flex;
+flex-direction:column;
+align-items:center;
+box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+.featured img{
+width:160px;
+border-radius:15px;
+margin-bottom:10px;
+}
+
+.featured button{
+padding:8px 14px;
+border-radius:8px;
+border:none;
+cursor:pointer;
+font-weight:600;
+background:#ffcc33;
+color:#111;
+transition:.2s;
+}
+
+.featured button:hover{
+background:#ffc000;
+color:#000;
+}
+
+.gameName{
+color:#ffcc33;
+font-weight:bold;
+margin-bottom:6px;
+}
+
+/* main grid */
+.gameGrid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+gap:15px;
+width:90%;
+max-width:1200px;
+margin:20px auto 40px;
+}
+
+.gameTile{
+background:#111;
+padding:10px;
+border:2px solid #ffcc33;
+border-radius:15px;
+text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+.gameTile button{
+padding:8px 14px;
+border-radius:8px;
+border:none;
+cursor:pointer;
+font-weight:600;
+background:#ffcc33;
+color:#111;
+margin-top:6px;
+}
+
+/* player overlay */
+#player{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+background:#000;
+z-index:99999;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+#player iframe{
+width:90%;
+height:90%;
+border:none;
+border-radius:12px;
+background:black;
+box-shadow:0 0 30px rgba(0,0,0,0.8);
+}
+
+.closeBtn{
+position:fixed;
+top:15px;
+right:20px;
+font-size:28px;
+cursor:pointer;
+color:white;
+z-index:100000;
+}
+
+.playerActions{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-bottom:6px;
+}
+
+.playerActions button{
+padding:8px 14px;
+border-radius:8px;
+border:none;
+cursor:pointer;
+font-weight:600;
+background:#ffcc33;
+color:#111;
+}
+
+.playerActions button:hover{
+background:#ffc000;
+color:#000;
+}
+
 </style>
 </head>
 <body>
 
 <header>
-<h1>Iggle-2 </h1>
+<h1>Iggle-2</h1>
 <h2>Ultimate UnBlocked Game Collection</h2>
 <p>Pick an Unblocked Game and have fun.</p>
 </header>
 
-<!-- FEATURED GAMES TOP ROW -->
+<!-- KARLSON GAME OF THE WEEK -->
+<div class="featuredRow">
+  <div class="featured" style="flex-direction:row;max-width:none;width:100%;align-items:center;gap:25px;padding:20px;">
+    <img src="https://th.bing.com/th/id/OIP.q45DjHc7GWib03XvshBI4QHaEK?w=254&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3&adlt=strict" style="width:320px;border-radius:15px;">
+    <div style="text-align:left;">
+      <div class="gameName" style="font-size:1.5rem;">Karlson</div>
+      <p>Game of the Week</p>
+      <button onclick="playGame('Karlson','https://clash-royale.io/play/karlson/','WASD + Mouse')">Play</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORIGINAL FEATURED ROW -->
 <div class="featuredRow">
   <div class="featured">
-    <div class="gameName">Ratking - Game of the Week</div>
+    <div class="gameName">Ratking</div>
     <img src="https://img.itch.zone/aW1nLzg1NzgzMDgucG5n/315x250%23c/kE04YL.png" alt="Ratking">
-    <button onclick="playGame('Ratking','https://html-classic.itch.zone/html/5567206/RATKING_WEB/index.html','WASD + Mouse to survive.')">Play</button>
+    <button onclick="playGame('Ratking','https://html-classic.itch.zone/html/5567206/RATKING_WEB/index.html','WASD + Mouse')">Play</button>
   </div>
   <div class="featured">
     <div class="gameName">Mortal Kombat</div>
-    <img src="https://th.bing.com/th/id/OIP.jAsIU2KdzOo4CkB4xbXWdwHaHa?w=207&h=207&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Mortal Kombat">
-    <button onclick="playGame('Mortal Kombat','https://www.retrogames.cc/embed/44277-mortal-kombat-red-blood-and-easy-moves.html','Arrow keys to move, Enter=Start, Z/Y=Buttons')">Play</button>
+    <img src="https://th.bing.com/th/id/OIP.jAsIU2KdzOo4CkB4xbXWdwHaHa" alt="Mortal Kombat">
+    <button onclick="playGame('Mortal Kombat','https://www.retrogames.cc/embed/44277-mortal-kombat-red-blood-and-easy-moves.html','Arrow Keys + Z')">Play</button>
   </div>
   <div class="featured">
     <div class="gameName">Batman Platformer</div>
-    <img src="https://th.bing.com/th/id/OIP.Mz2AQBArkFFvAsrdqwO5UgHaHa?w=188&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Batman Platformer">
-    <button onclick="playGame('Batman','https://html-classic.itch.zone/html/5203280/index.html','Arrow keys + Z to attack')">Play</button>
+    <img src="https://th.bing.com/th/id/OIP.Mz2AQBArkFFvAsrdqwO5UgHaHa" alt="Batman Platformer">
+    <button onclick="playGame('Batman','https://html-classic.itch.zone/html/5203280/index.html','Arrow Keys + Z')">Play</button>
   </div>
 </div>
 
-<!-- GRID GAMES BELOW -->
+<!-- NEW SECOND ROW -->
+<div class="featuredRow">
+  <div class="featured">
+    <img src="https://clash-royale.io/assets/upload/clash-royale.webp">
+    <div class="gameName">Clash Royale</div>
+    <button onclick="playGame('Clash Royale','https://clash-royale.io/play/karlson/','Mouse')">Play</button>
+  </div>
+  <div class="featured">
+    <img src="https://en.gameslol.net/thumbs/webp/jeu-69.webp?v=2">
+    <div class="gameName">Plants vs Zombies</div>
+    <button onclick="playGame('Plants vs Zombies','https://en.gameslol.net/data/pvz/en/index.php','Mouse')">Play</button>
+  </div>
+  <div class="featured">
+    <img src="https://th.bing.com/th/id/OIP.khPczlj7BYVHKQp7gyhfVQAAAA?w=174&h=176">
+    <div class="gameName">10 Minutes Till Dawn</div>
+    <button onclick="playGame('10 Minutes Till Dawn','https://unblockzone.vercel.app/g/10-minutes-till-dawn.html','WASD + Mouse')">Play</button>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
 <div class="gameGrid">
-
-<div class="gameTile"><div class="gameName">Batman Runner</div><button onclick="playGame('Batman Runner','https://html-classic.itch.zone/html/5844054/index.html','Arrow Keys to move/jump')">Play</button></div>
-<div class="gameTile"><div class="gameName">Mario vs Luigi</div><button onclick="playGame('Mario vs Luigi','https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html','Arrow Keys / WASD (2 players)')">Play</button></div>
-<div class="gameTile"><div class="gameName">Scarlett Shift</div><button onclick="playGame('Scarlett Shift','https://html-classic.itch.zone/html/14836857/index.html','Arrow Keys or WASD')">Play</button></div>
-<div class="gameTile"><div class="gameName">Don’t Forget the Breaks</div><button onclick="playGame('Breaks','https://html-classic.itch.zone/html/13021927-1206615/index.html','Arrow Keys = Drive, Space = Brake')">Play</button></div>
-<div class="gameTile"><div class="gameName">Job Simulator Horror</div><button onclick="playGame('Job Simulator Horror','https://html-classic.itch.zone/html/14488253-1386396/index.html','WASD + Mouse')">Play</button></div>
-<div class="gameTile"><div class="gameName">Zombietron</div><button onclick="playGame('Zombietron','https://html-classic.itch.zone/html/13200376/index.html','Controls in-game')">Play</button></div>
-<div class="gameTile"><div class="gameName">Dungeons & Degenerate Gamblers</div><button onclick="playGame('Dungeons & Degenerate Gamblers','https://html-classic.itch.zone/html/15020933/index.html','Mouse/touch')">Play</button></div>
-<div class="gameTile"><div class="gameName">EaglerCraft</div><button onclick="playGame('EaglerCraft','https://html-classic.itch.zone/html/13629802/index.html','WASD, Space=Jump, Mouse=Look')">Play</button></div>
-<div class="gameTile"><div class="gameName">Party Project</div><button onclick="playGame('Party Project','https://html-classic.itch.zone/html/14256748/994/index.html','Controls explained in-game')">Play</button></div>
-<div class="gameTile"><div class="gameName">Slope Xtreme</div><button onclick="playGame('Slope Xtreme','https://html-classic.itch.zone/html/13075669/index.html','Arrow Keys = Steer, avoid obstacles')">Play</button></div>
-<div class="gameTile"><div class="gameName">Moto X3M</div><button onclick="playGame('Moto X3M','https://jasongamesdev.github.io/moto-x3m/','Arrow keys = steer, space = hop/jump')">Play</button></div>
-<div class="gameTile"><div class="gameName">MindScan</div><button onclick="playGame('MindScan','https://plugplay.games/embed/00891f888eb4cb0c0f391adf9cc8f42ab613a5a7','Mouse/Keyboard controls in-game')">Play</button></div>
-<div class="gameTile"><div class="gameName">Epstein Redaction</div><button onclick="playGame('Epstein Redaction','https://html-classic.itch.zone/html/15935031/index.html','Controls in-game')">Play</button></div>
-<div class="gameTile"><div class="gameName">Texas Hold’em</div><button onclick="playGame('Texas Hold’em','https://cdn.htmlgames.com/TexasHoldemPoker/','Poker controls')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Batman Runner</div><button onclick="playGame('Batman Runner','https://html-classic.itch.zone/html/5844054/index.html','Arrow Keys')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Mario vs Luigi</div><button onclick="playGame('Mario vs Luigi','https://html-classic.itch.zone/html/14726167/MarioVsLuigi-WebGL/index.html','2 Players')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Scarlett Shift</div><button onclick="playGame('Scarlett Shift','https://html-classic.itch.zone/html/14836857/index.html','WASD')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Don’t Forget the Breaks</div><button onclick="playGame('Breaks','https://html-classic.itch.zone/html/13021927-1206615/index.html','Drive + Brake')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Job Simulator Horror</div><button onclick="playGame('Job Simulator Horror','https://html-classic.itch.zone/html/14488253-1386396/index.html','WASD')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Zombietron</div><button onclick="playGame('Zombietron','https://html-classic.itch.zone/html/13200376/index.html','In-game')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Dungeons & Degenerate Gamblers</div><button onclick="playGame('Dungeons & Degenerate Gamblers','https://html-classic.itch.zone/html/15020933/index.html','Mouse')">Play</button></div>
+  <div class="gameTile"><div class="gameName">EaglerCraft</div><button onclick="playGame('EaglerCraft','https://html-classic.itch.zone/html/13629802/index.html','Minecraft controls')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Party Project</div><button onclick="playGame('Party Project','https://html-classic.itch.zone/html/14256748/994/index.html','In game')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Slope Xtreme</div><button onclick="playGame('Slope Xtreme','https://html-classic.itch.zone/html/13075669/index.html','Arrow Keys')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Moto X3M</div><button onclick="playGame('Moto X3M','https://jasongamesdev.github.io/moto-x3m/','Arrow Keys')">Play</button></div>
+  <div class="gameTile"><div class="gameName">MindScan</div><button onclick="playGame('MindScan','https://plugplay.games/embed/00891f888eb4cb0c0f391adf9cc8f42ab613a5a7','Mouse')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Epstein Redaction</div><button onclick="playGame('Epstein Redaction','https://html-classic.itch.zone/html/15935031/index.html','In game')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Texas Hold’em</div><button onclick="playGame('Texas Holdem','https://cdn.htmlgames.com/TexasHoldemPoker/','Poker')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Braybray Clicker</div><button onclick="playGame('Braybray Clicker','https://unblockzone.vercel.app/g/braybray-clicker.html','Click')">Play</button></div>
+  <div class="gameTile"><div class="gameName">Among Us</div><button onclick="playGame('Among Us','https://unblockzone.vercel.app/g/among-us.html','Mouse')">Play</button></div>
 </div>
 
-
-<div id="playerOverlay">
-  <div id="playerBox">
-    <button class="closeBtn" onclick="closeGame()">✕</button>
-    <h2 id="gameTitle"></h2>
-    <p id="gameInstructions"></p>
-    <div class="playerActions">
-      <button onclick="fullscreenGame()">Fullscreen</button>
-      <button id="newTabBtn">Open in new tab</button>
-    </div>
-    <iframe id="gameFrame" src="" allowfullscreen></iframe>
-  </div>
-</div>
-
-
-<div class="pen21Promo">
-  <div class="pen21Tile">
-    <h1 onclick="window.open('https://igglecentral.oneapp.dev/','_blank')">Pen 21</h1>
-    <h2>The Future of Iggle</h2>
-    <div id="countdown"></div>
-    <a href="https://igglecentral.oneapp.dev/" target="_blank">Learn More</a>
-  </div>
+<!-- PLAYER OVERLAY -->
+<div id="player">
+  <div class="closeBtn" onclick="closeGame()">✕</div>
+  <iframe id="frame" allowfullscreen></iframe>
 </div>
 
 <footer style="margin:15px;text-align:center;color:#aaa;">
 <p>Made By Iggle Corp</p>
-<p>Play Mortal Kombat unblocked • Batman unblocked • Mario unblocked  • ZombieTron unblocked • Ratking • Infinite Mario unblocked • Moto X3M unblocked• Slope Xtreme unblocked and more</p>
 </footer>
 
 <script>
-const overlay=document.getElementById("playerOverlay");
-const frame=document.getElementById("gameFrame");
-const titleBox=document.getElementById("gameTitle");
-const instr=document.getElementById("gameInstructions");
-const newTabBtn=document.getElementById("newTabBtn");
-function playGame(title,url,instructions){
-  frame.src="";
-  overlay.style.display="flex";
-  titleBox.textContent=title;
-  instr.textContent=instructions;
-  frame.src=url;
-  newTabBtn.onclick=()=>window.open(url,"_blank");
-}
-function closeGame(){
-  overlay.style.display="none";
-  frame.src="";
-}
-function fullscreenGame(){
-  if(frame.requestFullscreen) frame.requestFullscreen();
+const overlay = document.getElementById("player");
+const frame = document.getElementById("frame");
+
+function playGame(title, url, instructions) {
+  overlay.style.display = "flex";
+  frame.src = url;
 }
 
-// Pen 21 countdown
-const releaseDate=new Date('February 20, 2026 00:00:00').getTime();
-const timer=setInterval(function(){
-  const now=new Date().getTime();
-  const distance=releaseDate-now;
-  if(distance<0){document.getElementById('countdown').innerHTML="Released";clearInterval(timer);return;}
-  const days=Math.floor(distance/(1000*60*60*24));
-  const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-  const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-  const seconds=Math.floor((distance%(1000*60))/1000);
-  document.getElementById('countdown').innerHTML=days+"d "+hours+"h "+minutes+"m "+seconds+"s";
-},1000);
+function closeGame() {
+  overlay.style.display = "none";
+  frame.src = "";
+}
+
+function fullscreenGame() {
+  if(frame.requestFullscreen) frame.requestFullscreen();
+}
 </script>
 
 </body>
